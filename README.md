@@ -6,7 +6,8 @@
 [![pandas 2.3.0](https://img.shields.io/badge/pandas-2.3.0-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![scikit-learn 1.7.0](https://img.shields.io/badge/scikit--learn-1.7.0-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![joblib 1.5.1](https://img.shields.io/badge/joblib-1.5.1-5A4FCF)](https://joblib.readthedocs.io/)
-[![Automated tests](https://github.com/forva2025/Spam_Email_Detector/actions/workflows/tests.yml/badge.svg)](https://github.com/forva2025/Spam_Email_Detector/actions/workflows/tests.yml)
+[![pytest 9.1.0](https://img.shields.io/badge/pytest-9.1.0-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/forva2025/Spam_Email_Detector/tests.yml?branch=main&label=GitHub%20Actions&logo=githubactions&logoColor=white)](https://github.com/forva2025/Spam_Email_Detector/actions/workflows/tests.yml)
 [![Live app](https://img.shields.io/badge/Live_App-Open-00A67E?logo=streamlit&logoColor=white)](https://spamemaildetector-mhbu4yj9c32zrn6ohxsvbm.streamlit.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
