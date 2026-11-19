@@ -21,6 +21,7 @@ def test_app_starts_without_errors():
     assert app.title[0].value == "📨 Spam Email Checker"
     assert len(app.text_area) == 1
     assert len(app.button) == 4
+    assert app.selectbox[0].value == "Naive Bayes"
 
 
 def test_short_input_displays_warning():
@@ -41,4 +42,28 @@ def test_suspicious_example_displays_spam_result():
 
     assert not app.exception
     assert app.error[0].value == "### Likely spam"
-    assert app.metric[0].label == "Model's spam score"
+    assert app.metric[0].label == "Naive Bayes spam score"
+    assert len(app.dataframe) == 1
+
+
+def test_comparison_dashboard_loads_measured_artifacts():
+    app = start_app()
+
+    app.radio[0].set_value("Model comparison").run(timeout=APP_TEST_TIMEOUT)
+
+    assert not app.exception
+    assert app.title[0].value == "📊 Model Comparison Dashboard"
+    assert len(app.selectbox) == 2
+    assert app.selectbox[0].value == "Hold-out F1"
+    assert len(app.dataframe) == 2
+
+
+def test_dashboard_compares_all_four_predictions():
+    app = start_app()
+    app.radio[0].set_value("Model comparison").run(timeout=APP_TEST_TIMEOUT)
+
+    app.text_area[0].set_value("WIN FREE MONEY NOW!!! CLAIM YOUR CREDIT $$$")
+    app.button[0].click().run(timeout=APP_TEST_TIMEOUT)
+
+    assert not app.exception
+    assert len(app.dataframe) == 3

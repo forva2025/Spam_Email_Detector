@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-19T08:20:43.090685+00:00",
+  "dataset": {
+    "path": "spam.csv",
+    "sha256": "0f04472cd9de760d3996a717c393fd96639067a87520803c06f2e89463c5dc38",
+    "rows": 4601,
+    "features": 57,
+    "class_distribution": {
+      "0": 2788,
+      "1": 1813
+    }
+  },
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true,
+    "training_rows": 3680,
+    "test_rows": 921
+  },
+  "cross_validation": {
+    "folds": 5,
+    "shuffle": true,
+    "random_state": 42,
+    "scope": "Training split only"
+  },
+  "models": [
+    {
+      "model_slug": "naive_bayes",
+      "model": "Naive Bayes",
+      "estimator": "MultinomialNB",
+      "preprocessing": "None; Spambase inputs are already non-negative.",
+      "parameters": {
+        "alpha": 1.0,
+        "class_prior": null,
+        "fit_prior": true,
+        "force_alpha": true
+      },
+      "artifact": "models/naive_bayes.joblib",
+      "holdout_metrics": {
+        "accuracy": 0.7763300760043431,
+        "precision": 0.7198879551820728,
+        "recall": 0.7079889807162535,
+        "f1": 0.7138888888888889
+      },
+      "cross_validation": {
+        "accuracy": {
+          "mean": 0.7869565217391304,
+          "std": 0.019164834437505943,
+          "fold_scores": [
+            0.7717391304347826,
+            0.7676630434782609,
+            0.8179347826086957,
+            0.8002717391304348,
+            0.7771739130434783
+          ]
+        },
+        "precision": {
+          "mean": 0.737146025168714,
+          "std": 0.02243005598275601,
+          "fold_scores": [
+            0.7276119402985075,
+            0.7030716723549488,
+            0.7653061224489796,
+            0.7581227436823105,
+            0.7316176470588235
+          ]
+        },
+        "recall": {
+          "mean": 0.7137931034482758,
+          "std": 0.03590183471674584,
+          "fold_scores": [
+            0.6724137931034483,
+            0.7103448275862069,
+            0.7758620689655172,
+            0.7241379310344828,
+            0.6862068965517242
+          ]
+        },
+        "f1": {
+          "mean": 0.7250176014776029,
+          "std": 0.026908436654251362,
+          "fold_scores": [
+            0.6989247311827957,
+            0.7066895368782161,
+            0.7705479452054794,
+            0.7407407407407407,
+            0.708185053380783
+          ]
+        }
+      },
+      "confusion_matrix": [
+        [
+          458,
+          100
+        ],
+        [
+          106,
+          257
+        ]
+      ]
+    },
+    {
+      "model_slug": "logistic_regression",
+      "model": "Logistic Regression",
+      "estimator": "StandardScaler + LogisticRegression",
+      "preprocessing": "StandardScaler fitted inside each training fold.",
+      "parameters": {
+        "memory": null,
+        "steps": "[('scaler', StandardScaler()), ('model', LogisticRegression(max_iter=2000, random_state=42))]",
+        "transform_input": null,
+        "verbose": false,
+        "scaler": "StandardScaler()",
+        "model": "LogisticRegression(max_iter=2000, random_state=42)",
+        "scaler__copy": true,
+        "scaler__with_mean": true,
+        "scaler__with_std": true,
+        "model__C": 1.0,
+        "model__class_weight": null,
+        "model__dual": false,
+        "model__fit_intercept": true,
+        "model__intercept_scaling": 1,
+        "model__l1_ratio": null,
+        "model__max_iter": 2000,
+        "model__multi_class": "deprecated",
+        "model__n_jobs": null,
+        "model__penalty": "l2",
+        "model__random_state": 42,
+        "model__solver": "lbfgs",
+        "model__tol": 0.0001,
+        "model__verbose": 0,
+        "model__warm_start": false
+      },
+      "artifact": "models/logistic_regression.joblib",
+      "holdout_metrics": {
+        "accuracy": 0.9294245385450597,
+        "precision": 0.9209039548022598,
+        "recall": 0.8980716253443526,
+        "f1": 0.9093444909344491
+      },
+      "cross_validation": {
+        "accuracy": {
+          "mean": 0.9228260869565217,
+          "std": 0.010780888274389878,
+          "fold_scores": [
+            0.9375,
+            0.9239130434782609,
+            0.9307065217391305,
+            0.907608695652174,
+            0.9144021739130435
+          ]
+        },
+        "precision": {
+          "mean": 0.9204414350612206,
+          "std": 0.02065870308095767,
+          "fold_scores": [
+            0.9326241134751773,
+            0.9119718309859155,
+            0.9543726235741445,
+            0.8964285714285715,
+            0.9068100358422939
+          ]
+        },
+        "recall": {
+          "mean": 0.8806896551724138,
+          "std": 0.016551724137931066,
+          "fold_scores": [
+            0.906896551724138,
+            0.8931034482758621,
+            0.8655172413793103,
+            0.8655172413793103,
+            0.8724137931034482
+          ]
+        },
+        "f1": {
+          "mean": 0.8999552809003465,
+          "std": 0.013690485674270197,
+          "fold_scores": [
+            0.9195804195804196,
+            0.9024390243902439,
+            0.9077757685352622,
+            0.8807017543859649,
+            0.8892794376098418
+          ]
+        }
+      },
+      "confusion_matrix": [
+        [
+          530,
+          28
+        ],
+        [
+          37,
+          326
+        ]
+      ]
+    },
+    {
+      "model_slug": "random_forest",
+      "model": "Random Forest",
+      "estimator": "RandomForestClassifier",
+      "preprocessing": "None; tree-based models do not require feature scaling.",
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": null,
+        "criterion": "gini",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": -1,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "artifact": "models/random_forest.joblib",
+      "holdout_metrics": {
+        "accuracy": 0.9457111834961998,
+        "precision": 0.9510086455331412,
+        "recall": 0.9090909090909091,
+        "f1": 0.9295774647887324
+      },
+      "cross_validation": {
+        "accuracy": {
+          "mean": 0.9510869565217392,
+          "std": 0.005953506059838763,
+          "fold_scores": [
+            0.9605978260869565,
+            0.9524456521739131,
+            0.9524456521739131,
+            0.9429347826086957,
+            0.9470108695652174
+          ]
+        },
+        "precision": {
+          "mean": 0.9503457843244743,
+          "std": 0.002343560436110322,
+          "fold_scores": [
+            0.9515570934256056,
+            0.950530035335689,
+            0.950530035335689,
+            0.9460431654676259,
+            0.9530685920577617
+          ]
+        },
+        "recall": {
+          "mean": 0.9241379310344827,
+          "std": 0.01479145557898427,
+          "fold_scores": [
+            0.9482758620689655,
+            0.9275862068965517,
+            0.9275862068965517,
+            0.906896551724138,
+            0.9103448275862069
+          ]
+        },
+        "f1": {
+          "mean": 0.9370045729187286,
+          "std": 0.008091068962604671,
+          "fold_scores": [
+            0.9499136442141624,
+            0.9389179755671903,
+            0.9389179755671903,
+            0.926056338028169,
+            0.9312169312169312
+          ]
+        }
+      },
+      "confusion_matrix": [
+        [
+          541,
+          17
+        ],
+        [
+          33,
+          330
+        ]
+      ]
+    },
+    {
+      "model_slug": "svm",
+      "model": "SVM",
+      "estimator": "StandardScaler + SVC (RBF kernel)",
+      "preprocessing": "StandardScaler fitted inside each training fold.",
+      "parameters": {
+        "memory": null,
+        "steps": "[('scaler', StandardScaler()), ('model', SVC(probability=True, random_state=42))]",
+        "transform_input": null,
+        "verbose": false,
+        "scaler": "StandardScaler()",
+        "model": "SVC(probability=True, random_state=42)",
+        "scaler__copy": true,
+        "scaler__with_mean": true,
+        "scaler__with_std": true,
+        "model__C": 1.0,
+        "model__break_ties": false,
+        "model__cache_size": 200,
+        "model__class_weight": null,
+        "model__coef0": 0.0,
+        "model__decision_function_shape": "ovr",
+        "model__degree": 3,
+        "model__gamma": "scale",
+        "model__kernel": "rbf",
+        "model__max_iter": -1,
+        "model__probability": true,
+        "model__random_state": 42,
+        "model__shrinking": true,
+        "model__tol": 0.001,
+        "model__verbose": false
+      },
+      "artifact": "models/svm.joblib",
+      "holdout_metrics": {
+        "accuracy": 0.9272529858849077,
+        "precision": 0.9277456647398844,
+        "recall": 0.8842975206611571,
+        "f1": 0.9055007052186178
+      },
+      "cross_validation": {
+        "accuracy": {
+          "mean": 0.9320652173913043,
+          "std": 0.006711461432189372,
+          "fold_scores": [
+            0.9334239130434783,
+            0.9347826086956522,
+            0.9293478260869565,
+            0.9415760869565217,
+            0.9211956521739131
+          ]
+        },
+        "precision": {
+          "mean": 0.9335475877967927,
+          "std": 0.005877122327821865,
+          "fold_scores": [
+            0.931899641577061,
+            0.926056338028169,
+            0.9375,
+            0.942652329749104,
+            0.9296296296296296
+          ]
+        },
+        "recall": {
+          "mean": 0.8910344827586207,
+          "std": 0.016261829134553957,
+          "fold_scores": [
+            0.896551724137931,
+            0.906896551724138,
+            0.8793103448275862,
+            0.906896551724138,
+            0.8655172413793103
+          ]
+        },
+        "f1": {
+          "mean": 0.9117182034365608,
+          "std": 0.00937806417006623,
+          "fold_scores": [
+            0.9138840070298769,
+            0.9163763066202091,
+            0.9074733096085409,
+            0.9244288224956063,
+            0.8964285714285715
+          ]
+        }
+      },
+      "confusion_matrix": [
+        [
+          533,
+          25
+        ],
+        [
+          42,
+          321
+        ]
+      ]
+    }
+  ]
+}

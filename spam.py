@@ -1,6 +1,8 @@
 # import relevant libraries
-import pandas as pd
+from pathlib import Path
+
 import joblib
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, confusion_matrix
@@ -38,5 +40,9 @@ print(f"Accuracy: {accuracy * 100:.2f}%")
 print("Confusion Matrix:")
 print(conf_matrix)
 
-# Save the trained model for future use.
-joblib.dump(model, 'spam_model.joblib')
+# Save both the original deployment path and the dashboard's model path.
+root = Path(__file__).resolve().parent
+model_directory = root / "models"
+model_directory.mkdir(exist_ok=True)
+joblib.dump(model, root / "spam_model.joblib")
+joblib.dump(model, model_directory / "naive_bayes.joblib")
