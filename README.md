@@ -5,11 +5,18 @@ spam** or **likely not spam**. The classifier is trained on the UCI Spambase
 dataset and is presented through a simple Streamlit web interface intended for
 non-technical users.
 
+## Live demo
+
+Try the deployed model in your browser:
+
+**[Open the Spam Email Detector on Streamlit Community Cloud](https://spamemaildetector-mhbu4yj9c32zrn6ohxsvbm.streamlit.app/)**
+
 > This project is an educational demonstration. It should be used as a second
 > opinion, not as a replacement for a mail provider's security filters.
 
 ## Table of contents
 
+- [Live demo](#live-demo)
 - [Features](#features)
 - [Application screenshots](#application-screenshots)
 - [How it works](#how-it-works)
