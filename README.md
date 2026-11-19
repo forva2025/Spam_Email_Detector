@@ -2,7 +2,9 @@
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit 1.45.1](https://img.shields.io/badge/Streamlit-1.45.1-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![pandas 2.3.0](https://img.shields.io/badge/pandas-2.3.0-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![scikit-learn 1.7.0](https://img.shields.io/badge/scikit--learn-1.7.0-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![joblib 1.5.1](https://img.shields.io/badge/joblib-1.5.1-5A4FCF)](https://joblib.readthedocs.io/)
 [![Live app](https://img.shields.io/badge/Live_App-Open-00A67E?logo=streamlit&logoColor=white)](https://spamemaildetector-mhbu4yj9c32zrn6ohxsvbm.streamlit.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
