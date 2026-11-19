@@ -9,6 +9,13 @@ from feature_extractor import FEATURE_NAMES, extract_spambase_features
 
 
 MODEL_PATH = Path(__file__).parents[1] / "spam_model.joblib"
+MODEL_DIR = Path(__file__).parents[1] / "models"
+MODEL_FILES = {
+    "Naive Bayes": MODEL_DIR / "naive_bayes.joblib",
+    "Logistic Regression": MODEL_DIR / "logistic_regression.joblib",
+    "Random Forest": MODEL_DIR / "random_forest.joblib",
+    "SVM": MODEL_DIR / "svm.joblib",
+}
 
 
 @pytest.fixture(scope="module")
@@ -32,6 +39,18 @@ def test_model_returns_valid_prediction(model):
     assert len(probabilities) == 2
     assert sum(probabilities) == pytest.approx(1.0)
     assert all(0.0 <= probability <= 1.0 for probability in probabilities)
+
+
+@pytest.mark.parametrize(("name", "path"), MODEL_FILES.items())
+def test_benchmark_model_artifacts_are_prediction_ready(name, path):
+    assert path.exists(), f"Missing {name} artifact; run `python benchmark.py`."
+    candidate = joblib.load(path)
+    features = extract_spambase_features("WIN FREE MONEY NOW!!!")
+
+    assert list(candidate.feature_names_in_) == FEATURE_NAMES
+    assert int(candidate.predict(features)[0]) in (0, 1)
+    probabilities = candidate.predict_proba(features)[0]
+    assert sum(probabilities) == pytest.approx(1.0)
 
 
 @pytest.mark.parametrize(
